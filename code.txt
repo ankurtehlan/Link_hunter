@@ -1,1 +1,11 @@
-
+(() => {
+  const urls = new Set([...document.querySelectorAll('*')]
+    .flatMap(el => ['src', 'href', 'action', 'data-src'].map(attr => el.getAttribute(attr)))
+    .filter(Boolean));
+  
+  const blob = new Blob([Array.from(urls).join('\n')], { type: 'text/plain' });
+  const link = Object.assign(document.createElement('a'), { 
+    href: URL.createObjectURL(blob), download: 'extracted_urls.txt' 
+  });
+  link.click();
+})();
