@@ -1,4 +1,4 @@
 # Link_hunter
 
 
-Copy code from Link.txt
+Copy from Code.txt
